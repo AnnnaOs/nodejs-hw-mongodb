@@ -54,7 +54,7 @@ export const updateContactController = async (req, res, next) => {
   res.status(200).json({
     status: 200,
     message: `Successfully updated a contact!`,
-    data: result.contact,
+    data: result,
   });
 };
 
