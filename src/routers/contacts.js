@@ -18,11 +18,12 @@ import {
 
 const router = Router();
 
+router.use('/:contactId', isValidId);
 router.use(authenticate);
 
 router.get('/', ctrlWrapper(getContactsController));
 
-router.get('/:contactId', isValidId, ctrlWrapper(getContactsByIdController));
+router.get('/:contactId', ctrlWrapper(getContactsByIdController));
 
 router.post(
   '/',
@@ -32,11 +33,10 @@ router.post(
 
 router.patch(
   '/:contactId',
-  isValidId,
   validateBody(updateContactSchema),
   ctrlWrapper(updateContactController),
 );
 
-router.delete('/:contactId', isValidId, ctrlWrapper(deleteContactController));
+router.delete('/:contactId', ctrlWrapper(deleteContactController));
 
 export default router;
