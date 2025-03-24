@@ -1,0 +1,78 @@
+tags:
+  - Contacts
+summary: Patched contact by id
+operationId: updateContact
+description: 'Updated contact with this id'
+security:
+  - bearerAuth: []
+parameters:
+  - name: contactId
+    in: path
+    required: true
+    schema:
+      type: string
+    description: 'Id of the contact to be updated'
+requestBody:
+  description: 'Fields to update'
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          name:
+            description: 'Contact`s name'
+            type: string
+            minLength: 3
+            maxLength: 20
+            example: 'John Doe'
+          phoneNumber:
+            type: string
+            description: 'Contact`s phone number'
+            example: '+380671338855'
+          email:
+            type: string
+            description: 'Contact`s email'
+            example: 'example@gmail.com'
+          isFavourite:
+            type: boolean
+            description: 'Whether the contact is a favourite'
+            default: false
+          contactType:
+            type: string
+            description: 'Type of contact'
+            enum: ['work', 'home', 'personal']
+            default: 'personal'
+          photo:
+            type: string
+            format: binary
+            description: 'Contact`s photo (as a file)'
+responses:
+  '200':
+    description: 'Success'
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: 'Successfully updated a contact!'
+            data:
+              type: object
+              $ref: ../../../components/schemas/contact.yaml
+  '400':
+    $ref: '../../../components/responses/400.yaml'
+    description: 'Bad request'
+  '401':
+    $ref: '../../../components/responses/401.yaml'
+    description: 'Unauthorized'
+  '404':
+    $ref: '../../../components/responses/404.yaml'
+    description: 'Contact not found'

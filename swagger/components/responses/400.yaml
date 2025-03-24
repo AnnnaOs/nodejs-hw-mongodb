@@ -1,0 +1,55 @@
+description: Bad Request Error
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - status
+        - message
+        - data
+      properties:
+        status:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: BadRequestError
+        data:
+          type: object
+          required:
+            - message
+            - errors
+          properties:
+            message:
+              type: string
+              example: 'Validation Error'
+            errors:
+              description: 'List of validation errors'
+              type: array
+              items:
+                type: object
+                properties:
+                  message:
+                    description: 'Description of the validation error'
+                    type: string
+                    example: '"email" is required'
+                  path:
+                    description: 'Path of the field that caused the validation error'
+                    type: string
+                    items:
+                      type: string
+                      example: 'email'
+                  type:
+                    description: 'Type of the validation error'
+                    type: string
+                    example: 'any.required'
+                  context:
+                    description: 'Additional context provided by Joi'
+                    type: object
+                    properties:
+                      label:
+                        type: string
+                        example: 'email'
+                      key:
+                        type: string
+                        example: 'email'
