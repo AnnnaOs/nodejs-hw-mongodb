@@ -174,10 +174,6 @@
           "401": {
             "$ref": "#/components/responses/401",
             "description": "Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/404",
-            "description": "Route not found"
           }
         }
       },
@@ -338,6 +334,10 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400",
+            "description": "Bad request"
           },
           "401": {
             "$ref": "#/components/responses/401",
@@ -960,22 +960,22 @@
         ],
         "properties": {
           "_id": {
-            "description": "Contact id",
+            "description": "Contact`s id",
             "type": "string",
             "example": "65ca67e7ae7f10c88b598384"
           },
           "name": {
-            "description": "Contact name",
+            "description": "Contact`s name",
             "type": "string",
             "example": "John Doe"
           },
           "phoneNumber": {
-            "description": "The contact's phone number",
+            "description": "The contact`s phone number",
             "type": "string",
             "example": "+380000000008"
           },
           "email": {
-            "description": "Contact email",
+            "description": "Contact`s email",
             "type": "string",
             "example": "example@gmail.com"
           },
@@ -992,10 +992,10 @@
               "home",
               "personal"
             ],
-            "default": "personal"
+            "example": "personal"
           },
           "userId": {
-            "description": "Contact owner id",
+            "description": "Contact`s owner id",
             "type": "string",
             "example": "65ca67e7ae7f10c88b598384"
           },

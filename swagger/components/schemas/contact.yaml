@@ -6,19 +6,19 @@ required:
   - userId
 properties:
   _id:
-    description: 'Contact id'
+    description: 'Contact`s id'
     type: string
-    example: 65ca67e7ae7f10c88b598384
+    example: '65ca67e7ae7f10c88b598384'
   name:
-    description: 'Contact name'
+    description: 'Contact`s name'
     type: string
     example: 'John Doe'
   phoneNumber:
-    description: "The contact's phone number"
+    description: 'The contact`s phone number'
     type: string
     example: '+380000000008'
   email:
-    description: 'Contact email'
+    description: 'Contact`s email'
     type: string
     example: 'example@gmail.com'
   isFavourite:
@@ -28,12 +28,15 @@ properties:
   contactType:
     description: 'Type of contact'
     type: string
-    enum: ['work', 'home', 'personal']
-    default: 'personal'
+    enum:
+      - work
+      - home
+      - personal
+    example: personal
   userId:
-    description: 'Contact owner id'
+    description: 'Contact`s owner id'
     type: string
-    example: 65ca67e7ae7f10c88b598384
+    example: '65ca67e7ae7f10c88b598384'
   photo:
     description: 'Link to contact photo'
     type: string

@@ -26,8 +26,10 @@ parameters:
     name: sortOrder
     schema:
       type: string
-      enum: ['asc', 'desc']
-      example: 'asc'
+      enum:
+        - asc
+        - desc
+      example: asc
   - in: query
     name: isFavourite
     schema:
@@ -37,8 +39,11 @@ parameters:
     name: contactType
     schema:
       type: string
-      enum: ['work', 'home', 'personal']
-      example: 'personal'
+      enum:
+        - work
+        - home
+        - personal
+      example: personal
 responses:
   '200':
     description: 'Success'
@@ -93,6 +98,3 @@ responses:
   '401':
     $ref: '../../components/responses/401.yaml'
     description: 'Unauthorized'
-  '404':
-    $ref: '../../components/responses/404.yaml'
-    description: 'Route not found'
