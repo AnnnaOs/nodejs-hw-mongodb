@@ -2,7 +2,7 @@ tags:
   - Auth
 summary: User registration
 operationId: registerUser
-description: 'New user registration'
+description: New user registration
 security: []
 requestBody:
   required: true
@@ -26,7 +26,7 @@ requestBody:
             example: 'password123'
 responses:
   '201':
-    description: 'Created'
+    description: Created
     content:
       application/json:
         schema:
@@ -49,7 +49,7 @@ responses:
     $ref: '../../components/responses/400.yaml'
     description: 'Bad request'
   '409':
-    description: 'Conflict Error'
+    description: Conflict Error
     content:
       application\json:
         schema:
@@ -64,7 +64,7 @@ responses:
               example: 409
             message:
               type: string
-              example: 'ConflictError'
+              example: ConflictError
             data:
               type: object
               required:
@@ -73,3 +73,5 @@ responses:
                 message:
                   type: string
                   example: 'Email in use'
+  '500':
+    $ref: '../../components/responses/500.yaml'

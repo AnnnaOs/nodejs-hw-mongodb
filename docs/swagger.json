@@ -33,9 +33,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Get list of all contacts",
+        "summary": "Get list of contacts",
         "operationId": "getContacts",
-        "description": "Get list of contacts with this endpoint",
+        "description": "Get list of all contacts",
         "security": [
           {
             "bearerAuth": []
@@ -174,6 +174,9 @@
           "401": {
             "$ref": "#/components/responses/401",
             "description": "Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         }
       },
@@ -181,9 +184,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Create a new contact",
+        "summary": "Create a contact",
         "operationId": "createContact",
-        "description": "Create a contact with payload",
+        "description": "Create a new contact",
         "security": [
           {
             "bearerAuth": []
@@ -201,27 +204,22 @@
                 ],
                 "properties": {
                   "name": {
-                    "description": "Contact`s name",
                     "type": "string",
                     "example": "John Doe"
                   },
                   "phoneNumber": {
-                    "description": "Contact`s phone number",
                     "type": "string",
                     "example": "+380671338855"
                   },
                   "email": {
-                    "description": "Contact`s email",
                     "type": "string",
                     "example": "example@gmail.com"
                   },
                   "isFavourite": {
-                    "description": "Whether the contact is a favorite",
                     "type": "boolean",
                     "default": false
                   },
                   "contactType": {
-                    "description": "Type of contact",
                     "type": "string",
                     "enum": [
                       "work",
@@ -231,7 +229,6 @@
                     "default": "personal"
                   },
                   "photo": {
-                    "description": "Contact`s photo (as a file)",
                     "type": "string",
                     "format": "binary"
                   }
@@ -277,6 +274,9 @@
           "401": {
             "$ref": "#/components/responses/401",
             "description": "Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -286,7 +286,7 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Get contact by id",
+        "summary": "Get a contact by id",
         "operationId": "getContactById",
         "description": "Get a contact by contact id",
         "security": [
@@ -353,9 +353,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Patched contact by id",
+        "summary": "Update a contact by id",
         "operationId": "updateContact",
-        "description": "Updated contact with this id",
+        "description": "Update a contact by id",
         "security": [
           {
             "bearerAuth": []
@@ -469,9 +469,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Delete contact by id",
+        "summary": "Delete a contact",
         "operationId": "deleteContact",
-        "description": "Delete contact by contact id",
+        "description": "Delete a contact by contact id",
         "security": [
           {
             "bearerAuth": []
@@ -492,6 +492,10 @@
         "responses": {
           "204": {
             "description": "Success. No content"
+          },
+          "400": {
+            "$ref": "#/components/responses/400",
+            "description": "Bad request"
           },
           "401": {
             "$ref": "#/components/responses/401",
@@ -612,6 +616,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -687,6 +694,10 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/400",
+            "description": "Bad request"
+          },
           "401": {
             "$ref": "#/components/responses/401",
             "description": "Unauthorized"
@@ -694,6 +705,9 @@
           "404": {
             "$ref": "#/components/responses/404",
             "description": "User not found"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -773,6 +787,9 @@
           "401": {
             "$ref": "#/components/responses/401",
             "description": "\"Session not found\" or \"Session token expired\""
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -793,6 +810,9 @@
           "401": {
             "$ref": "#/components/responses/401",
             "description": "Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -874,7 +894,7 @@
         ],
         "summary": "Reset user password",
         "operationId": "resetPassword",
-        "description": "Reset user`s password using jwt token",
+        "description": "Reset user's password using jwt token",
         "security": [],
         "requestBody": {
           "required": true,
@@ -930,6 +950,10 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/400",
+            "description": "Bad request"
+          },
           "401": {
             "$ref": "#/components/responses/401",
             "description": "Token is expired or invalid"
@@ -937,6 +961,9 @@
           "404": {
             "$ref": "#/components/responses/404",
             "description": "User not found"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -960,22 +987,22 @@
         ],
         "properties": {
           "_id": {
-            "description": "Contact`s id",
+            "description": "Contact's id",
             "type": "string",
             "example": "65ca67e7ae7f10c88b598384"
           },
           "name": {
-            "description": "Contact`s name",
+            "description": "Contact's name",
             "type": "string",
             "example": "John Doe"
           },
           "phoneNumber": {
-            "description": "The contact`s phone number",
+            "description": "Contact's phone number",
             "type": "string",
-            "example": "+380000000008"
+            "example": "+380630078888"
           },
           "email": {
-            "description": "Contact`s email",
+            "description": "Contact's email",
             "type": "string",
             "example": "example@gmail.com"
           },
@@ -995,12 +1022,12 @@
             "example": "personal"
           },
           "userId": {
-            "description": "Contact`s owner id",
+            "description": "Contact's owner id",
             "type": "string",
             "example": "65ca67e7ae7f10c88b598384"
           },
           "photo": {
-            "description": "Link to contact photo",
+            "description": "Link to contact's photo",
             "type": "string",
             "example": "https://res.cloudinary.com/contacts-cloud/image/upload/v1742406769/cloud_folder/njfhuseawrewg4yzvq84.jpg"
           },
@@ -1025,33 +1052,27 @@
         ],
         "properties": {
           "_id": {
-            "description": "Unique id for the user",
             "type": "string",
             "example": "66b0ab77141205369a56ed0d"
           },
           "name": {
-            "description": "User`s name",
             "type": "string",
-            "example": "John"
+            "example": "John Doe"
           },
           "email": {
-            "description": "User`s email",
             "type": "string",
             "example": "example@gmail.com"
           },
           "password": {
-            "description": "Hashed password of the user",
             "type": "string",
-            "example": "$2b$10$vb1B/.F5AZFFb6w8TzgHaO8X72dj3nzQ.02HEj1IjqJ1eT2YXM5AC"
+            "example": "password123"
           },
           "createdAt": {
-            "description": "Timestamp when the user was created",
             "type": "string",
             "format": "date-time",
             "example": "2024-08-05T10:37:43.870Z"
           },
           "updatedAt": {
-            "description": "Timestamp when the user was last updated",
             "type": "string",
             "format": "date-time",
             "example": "2024-08-05T10:37:43.870Z"
@@ -1083,54 +1104,12 @@
                 "data": {
                   "type": "object",
                   "required": [
-                    "message",
-                    "errors"
+                    "message"
                   ],
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Validation Error"
-                    },
-                    "errors": {
-                      "description": "List of validation errors",
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "message": {
-                            "description": "Description of the validation error",
-                            "type": "string",
-                            "example": "\"email\" is required"
-                          },
-                          "path": {
-                            "description": "Path of the field that caused the validation error",
-                            "type": "string",
-                            "items": {
-                              "type": "string",
-                              "example": "email"
-                            }
-                          },
-                          "type": {
-                            "description": "Type of the validation error",
-                            "type": "string",
-                            "example": "any.required"
-                          },
-                          "context": {
-                            "description": "Additional context provided by Joi",
-                            "type": "object",
-                            "properties": {
-                              "label": {
-                                "type": "string",
-                                "example": "email"
-                              },
-                              "key": {
-                                "type": "string",
-                                "example": "email"
-                              }
-                            }
-                          }
-                        }
-                      }
+                      "example": "Invalid input data"
                     }
                   }
                 }
@@ -1167,7 +1146,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Access token expired"
+                      "example": "Authorization information is missing or invalid."
                     }
                   }
                 }

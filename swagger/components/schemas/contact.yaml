@@ -6,46 +6,43 @@ required:
   - userId
 properties:
   _id:
-    description: 'Contact`s id'
+    description: Contact's id
     type: string
     example: '65ca67e7ae7f10c88b598384'
   name:
-    description: 'Contact`s name'
+    description: Contact's name
     type: string
     example: 'John Doe'
   phoneNumber:
-    description: 'The contact`s phone number'
+    description: Contact's phone number
     type: string
-    example: '+380000000008'
+    example: '+380630078888'
   email:
-    description: 'Contact`s email'
+    description: Contact's email
     type: string
     example: 'example@gmail.com'
   isFavourite:
-    description: 'Whether the contact is a favorite'
+    description: Whether the contact is a favorite
     type: boolean
     default: false
   contactType:
-    description: 'Type of contact'
+    description: Type of contact
     type: string
-    enum:
-      - work
-      - home
-      - personal
-    example: personal
+    enum: ['work', 'home', 'personal']
+    example: 'personal'
   userId:
-    description: 'Contact`s owner id'
+    description: Contact's owner id
     type: string
     example: '65ca67e7ae7f10c88b598384'
   photo:
-    description: 'Link to contact photo'
+    description: Link to contact's photo
     type: string
     example: 'https://res.cloudinary.com/contacts-cloud/image/upload/v1742406769/cloud_folder/njfhuseawrewg4yzvq84.jpg'
   createdAt:
-    description: 'Contact created at'
+    description: Contact created at
     type: string
     format: date-time
   updatedAt:
-    description: 'Contact last update'
+    description: Contact last update
     type: string
     format: date-time

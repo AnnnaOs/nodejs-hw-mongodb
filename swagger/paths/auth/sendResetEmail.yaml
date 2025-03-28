@@ -2,7 +2,7 @@ tags:
   - Auth
 summary: Send reset password email
 operationId: sendResetEmail
-description: 'Sends an email with a link to reset the password'
+description: Sends an email with a link to reset the password
 security: []
 requestBody:
   required: true
@@ -19,7 +19,7 @@ requestBody:
             example: 'example@example.com'
 responses:
   '200':
-    description: 'Success'
+    description: Success
     content:
       application/json:
         schema:

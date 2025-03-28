@@ -1,8 +1,8 @@
 tags:
   - Contacts
-summary: Patched contact by id
+summary: Update a contact by id
 operationId: updateContact
-description: 'Updated contact with this id'
+description: Update a contact by id
 security:
   - bearerAuth: []
 parameters:

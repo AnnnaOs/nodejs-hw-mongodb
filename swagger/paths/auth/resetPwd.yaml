@@ -2,7 +2,7 @@ tags:
   - Auth
 summary: Reset user password
 operationId: resetPassword
-description: 'Reset user`s password using jwt token'
+description: Reset user's password using jwt token
 security: []
 requestBody:
   required: true
@@ -22,7 +22,7 @@ requestBody:
             example: 'newSecurePassword123'
 responses:
   '200':
-    description: 'Success'
+    description: Success
     content:
       application/json:
         schema:
@@ -41,9 +41,14 @@ responses:
             data:
               type: object
               properties: {}
+  '400':
+    $ref: ../../components/responses/400.yaml
+    description: 'Bad request'
   '401':
     $ref: '../../components/responses/401.yaml'
     description: 'Token is expired or invalid'
   '404':
     $ref: '../../components/responses/404.yaml'
     description: 'User not found'
+  '500':
+    $ref: '../../components/responses/500.yaml'

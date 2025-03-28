@@ -2,7 +2,7 @@ tags:
   - Auth
 summary: Refresh user's session
 operationId: refreshUsersSession
-description: 'Refreshes the user`s session using the refresh token stored in cookies'
+description: Refreshes the user`s session using the refresh token stored in cookies
 security: []
 requestBody:
   required: true
@@ -22,7 +22,7 @@ requestBody:
             example: 'ksIErcdA0oBwLX79f4bPcYXWKyEX/hcN6OcDU1Ll'
 responses:
   '200':
-    description: 'Success'
+    description: Success
     content:
       application/json:
         schema:
@@ -45,8 +45,10 @@ responses:
               properties:
                 accessToken:
                   type: string
-                  description: 'The new access token for the user session'
+                  description: The new access token for the user session
                   example: 'ksIErcdA0oBwLX79f4bPcYXWKyEX/hcN6OcDU1Ll'
   '401':
     $ref: '../../components/responses/401.yaml'
     description: '"Session not found" or "Session token expired"'
+  '500':
+    $ref: '../../components/responses/500.yaml'
