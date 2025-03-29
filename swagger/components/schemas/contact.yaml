@@ -12,6 +12,8 @@ properties:
   name:
     description: Contact's name
     type: string
+    minLength: 3
+    maxLength: 20
     example: 'John Doe'
   phoneNumber:
     description: Contact's phone number
@@ -37,7 +39,7 @@ properties:
   photo:
     description: Link to contact's photo
     type: string
-    example: 'https://res.cloudinary.com/contacts-cloud/image/upload/v1742406769/cloud_folder/njfhuseawrewg4yzvq84.jpg'
+    example: 'https://res.cloudinary.com/contacts-cloud/image/upload/v1743158522/cloud_folder/1743158522230_avatar.jpg'
   createdAt:
     description: Contact created at
     type: string

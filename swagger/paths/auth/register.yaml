@@ -47,7 +47,6 @@ responses:
               $ref: '../../components/schemas/user.yaml'
   '400':
     $ref: '../../components/responses/400.yaml'
-    description: 'Bad request'
   '409':
     description: Conflict Error
     content:

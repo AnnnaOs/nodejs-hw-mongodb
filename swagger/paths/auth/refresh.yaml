@@ -50,5 +50,8 @@ responses:
   '401':
     $ref: '../../components/responses/401.yaml'
     description: '"Session not found" or "Session token expired"'
+  '404':
+    $ref: '../../components/responses/404.yaml'
+    description: 'User not found'
   '500':
     $ref: '../../components/responses/500.yaml'

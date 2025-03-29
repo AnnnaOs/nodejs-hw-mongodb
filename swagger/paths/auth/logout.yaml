@@ -9,6 +9,5 @@ responses:
     description: 'Success. No content'
   '401':
     $ref: '../../components/responses/401.yaml'
-    description: 'Unauthorized'
   '500':
     $ref: '../../components/responses/500.yaml'

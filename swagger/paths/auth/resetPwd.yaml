@@ -43,7 +43,6 @@ responses:
               properties: {}
   '400':
     $ref: ../../components/responses/400.yaml
-    description: 'Bad request'
   '401':
     $ref: '../../components/responses/401.yaml'
     description: 'Token is expired or invalid'

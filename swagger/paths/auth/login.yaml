@@ -48,10 +48,8 @@ responses:
                   example: 'ksIErcdA0oBwLX79f4bPcYXWKyEX/hcN6OcDU1Ll'
   '400':
     $ref: '../../components/responses/400.yaml'
-    description: 'Bad request'
   '401':
     $ref: '../../components/responses/401.yaml'
-    description: 'Unauthorized'
   '404':
     $ref: '../../components/responses/404.yaml'
     description: 'User not found'
