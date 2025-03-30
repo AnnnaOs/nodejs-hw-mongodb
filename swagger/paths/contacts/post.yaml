@@ -1,8 +1,8 @@
 tags:
   - Contacts
-summary: Create contact
+summary: Add contact
 operationId: createContact
-description: 'Create a new contact'
+description: Add a new contact
 security:
   - bearerAuth: []
 requestBody:
@@ -17,33 +17,33 @@ requestBody:
         properties:
           name:
             type: string
-            description: "Contact's name"
-            example: 'John Doe'
+            description: Contact's name
+            example: John Doe
           phoneNumber:
             type: string
-            description: "Contact's phone number"
-            example: '+380671338855'
+            description: Contact's phone number
+            example: +380671338855
           email:
             type: string
-            description: "Contact's email"
-            example: 'example@gmail.com'
+            description: Contact's email
+            example: example@gmail.com
           isFavourite:
             type: boolean
-            description: 'Whether the contact is a favourite'
+            description: Whether the contact is a favourite
             default: false
           contactType:
             type: string
-            description: "Contact's type"
-            enum: ['work', 'home', 'personal']
-            default: 'personal'
+            description: Contact's type
+            enum: [work, home, personal]
+            default: personal
           photo:
             type: string
             format: binary
-            description: "Link to contact's photo"
+            description: Link to contact's photo
             example: 'https://res.cloudinary.com/contacts-cloud/image/upload/v1743158522/cloud_folder/1743158522230_avatar.jpg'
 responses:
   '201':
-    description: 'Success. Created'
+    description: Successful operation. Created
     content:
       application/json:
         schema:
@@ -58,7 +58,7 @@ responses:
               example: 201
             message:
               type: string
-              example: 'Successfully created a contact!'
+              example: Successfully created a contact!
             data:
               type: object
               $ref: '../../components/schemas/contact.yaml'

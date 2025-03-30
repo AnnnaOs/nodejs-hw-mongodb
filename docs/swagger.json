@@ -35,7 +35,7 @@
         ],
         "summary": "Get list of contacts",
         "operationId": "getContacts",
-        "description": "Get list of all contacts",
+        "description": "Get list of contacts with this endpoint",
         "security": [
           {
             "bearerAuth": []
@@ -43,24 +43,24 @@
         ],
         "parameters": [
           {
-            "in": "query",
             "name": "page",
+            "in": "query",
             "schema": {
               "type": "integer",
               "example": 1
             }
           },
           {
-            "in": "query",
             "name": "perPage",
+            "in": "query",
             "schema": {
               "type": "integer",
               "example": 10
             }
           },
           {
-            "in": "query",
             "name": "sortBy",
+            "in": "query",
             "schema": {
               "type": "string",
               "description": "All contact's fields can be mentioned. Default value - _id",
@@ -68,8 +68,8 @@
             }
           },
           {
-            "in": "query",
             "name": "sortOrder",
+            "in": "query",
             "schema": {
               "type": "string",
               "enum": [
@@ -80,16 +80,16 @@
             }
           },
           {
-            "in": "query",
             "name": "isFavourite",
+            "in": "query",
             "schema": {
               "type": "boolean",
               "example": false
             }
           },
           {
-            "in": "query",
             "name": "contactType",
+            "in": "query",
             "schema": {
               "type": "string",
               "enum": [
@@ -103,7 +103,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -186,9 +186,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Create contact",
+        "summary": "Add contact",
         "operationId": "createContact",
-        "description": "Create a new contact",
+        "description": "Add a new contact",
         "security": [
           {
             "bearerAuth": []
@@ -213,7 +213,7 @@
                   "phoneNumber": {
                     "type": "string",
                     "description": "Contact's phone number",
-                    "example": "+380671338855"
+                    "example": 380671338855
                   },
                   "email": {
                     "type": "string",
@@ -248,7 +248,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success. Created",
+            "description": "Successful operation. Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -293,9 +293,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Get contact by id",
+        "summary": "Find contact by ID",
         "operationId": "getContactById",
-        "description": "Get contact by contact id",
+        "description": "Returns a single contact",
         "security": [
           {
             "bearerAuth": []
@@ -303,8 +303,9 @@
         ],
         "parameters": [
           {
-            "in": "path",
             "name": "contactId",
+            "in": "path",
+            "description": "ID of contact to return",
             "required": true,
             "schema": {
               "type": "string",
@@ -314,7 +315,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -331,7 +332,7 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully found contact with id 65ca67e7ae7f10c88b598384!"
+                      "example": "Successfully found contact with ID 65ca67e7ae7f10c88b598384!"
                     },
                     "data": {
                       "type": "object",
@@ -363,7 +364,7 @@
         ],
         "summary": "Update contact",
         "operationId": "updateContact",
-        "description": "Update contact by contact id",
+        "description": "Update contact by contact ID",
         "security": [
           {
             "bearerAuth": []
@@ -371,8 +372,8 @@
         ],
         "parameters": [
           {
-            "in": "path",
             "name": "contactId",
+            "in": "path",
             "required": true,
             "schema": {
               "type": "string",
@@ -394,7 +395,7 @@
                   "phoneNumber": {
                     "type": "string",
                     "description": "Contact's phone number",
-                    "example": "+380671338855"
+                    "example": 380671338855
                   },
                   "email": {
                     "type": "string",
@@ -429,7 +430,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -478,7 +479,7 @@
         ],
         "summary": "Delete contact",
         "operationId": "deleteContact",
-        "description": "Delete contact by contact id",
+        "description": "Delete contact by contact ID",
         "security": [
           {
             "bearerAuth": []
@@ -486,8 +487,9 @@
         ],
         "parameters": [
           {
-            "in": "path",
             "name": "contactId",
+            "in": "path",
+            "description": "Contact ID to delete",
             "required": true,
             "schema": {
               "type": "string",
@@ -497,7 +499,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Success. No content"
+            "description": "Successful operation. No content"
           },
           "400": {
             "$ref": "#/components/responses/400"
@@ -522,7 +524,7 @@
         ],
         "summary": "User registration",
         "operationId": "registerUser",
-        "description": "New user registration",
+        "description": "Register a new user",
         "security": [],
         "requestBody": {
           "required": true,
@@ -555,7 +557,7 @@
         },
         "responses": {
           "201": {
-            "description": "Created",
+            "description": "Successful operation. Create user",
             "content": {
               "application/json": {
                 "schema": {
@@ -636,7 +638,7 @@
         ],
         "summary": "User login",
         "operationId": "loginUser",
-        "description": "Log In with provided credentials",
+        "description": "Login with provided credentials",
         "security": [],
         "requestBody": {
           "required": true,
@@ -664,7 +666,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -721,9 +723,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Refresh user's session",
+        "summary": "Refresh user session",
         "operationId": "refreshUsersSession",
-        "description": "Refreshes the user`s session using the refresh token stored in cookies",
+        "description": "Refreshing the user session using a refresh token",
         "security": [],
         "requestBody": {
           "required": true,
@@ -751,7 +753,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -807,13 +809,13 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Logout User",
+        "summary": "User logout",
         "operationId": "logoutUser",
-        "description": "Log out from account",
+        "description": "Logout from account",
         "security": [],
         "responses": {
           "204": {
-            "description": "Success. No content"
+            "description": "Successful operation. No content"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -855,7 +857,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -929,7 +931,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -1007,7 +1009,7 @@
           "phoneNumber": {
             "description": "Contact's phone number",
             "type": "string",
-            "example": "+380630078888"
+            "example": 380630078888
           },
           "email": {
             "description": "Contact's email",

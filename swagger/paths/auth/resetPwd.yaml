@@ -16,13 +16,13 @@ requestBody:
         properties:
           token:
             type: string
-            example: 'ksIErcdA0oBwLX79f4bPcYXWKyEX/hcN6OcDU1Ll'
+            example: ksIErcdA0oBwLX79f4bPcYXWKyEX/hcN6OcDU1Ll
           password:
             type: string
-            example: 'newSecurePassword123'
+            example: newSecurePassword123
 responses:
   '200':
-    description: Success
+    description: Successful operation
     content:
       application/json:
         schema:
@@ -37,7 +37,7 @@ responses:
               example: 200
             message:
               type: string
-              example: 'Password has been successfully reset!'
+              example: Password has been successfully reset!
             data:
               type: object
               properties: {}
@@ -48,6 +48,6 @@ responses:
     description: 'Token is expired or invalid'
   '404':
     $ref: '../../components/responses/404.yaml'
-    description: 'User not found'
+    description: User not found
   '500':
     $ref: '../../components/responses/500.yaml'

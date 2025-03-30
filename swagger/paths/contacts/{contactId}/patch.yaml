@@ -2,16 +2,16 @@ tags:
   - Contacts
 summary: Update contact
 operationId: updateContact
-description: 'Update contact by contact id'
+description: Update contact by contact ID
 security:
   - bearerAuth: []
 parameters:
-  - in: path
-    name: contactId
+  - name: contactId
+    in: path
     required: true
     schema:
       type: string
-      example: '65ca67e7ae7f10c88b598384'
+      example: 65ca67e7ae7f10c88b598384
 requestBody:
   content:
     multipart/form-data:
@@ -20,33 +20,33 @@ requestBody:
         properties:
           name:
             type: string
-            description: "Contact's name"
-            example: 'John Doe'
+            description: Contact's name
+            example: John Doe
           phoneNumber:
             type: string
-            description: "Contact's phone number"
-            example: '+380671338855'
+            description: Contact's phone number
+            example: +380671338855
           email:
             type: string
-            description: "Contact's email"
-            example: 'example@gmail.com'
+            description: Contact's email
+            example: example@gmail.com
           isFavourite:
             type: boolean
-            description: 'Whether the contact is a favourite'
+            description: Whether the contact is a favourite
             default: false
           contactType:
             type: string
-            description: "Contact's type"
-            enum: ['work', 'home', 'personal']
-            default: 'personal'
+            description: Contact's type
+            enum: [work, home, personal]
+            default: personal
           photo:
             type: string
             format: binary
-            description: "Link to contact's photo"
+            description: Link to contact's photo
             example: 'https://res.cloudinary.com/contacts-cloud/image/upload/v1743158522/cloud_folder/1743158522230_avatar.jpg'
 responses:
   '200':
-    description: 'Success'
+    description: Successful operation
     content:
       application/json:
         schema:
@@ -61,16 +61,16 @@ responses:
               example: 200
             message:
               type: string
-              example: 'Successfully updated a contact!'
+              example: Successfully updated a contact!
             data:
               type: object
-              $ref: ../../../components/schemas/contact.yaml
+              $ref: '../../../components/schemas/contact.yaml'
   '400':
     $ref: '../../../components/responses/400.yaml'
   '401':
     $ref: '../../../components/responses/401.yaml'
   '404':
     $ref: '../../../components/responses/404.yaml'
-    description: 'Contact not found'
+    description: Contact not found
   '500':
     $ref: '../../../components/responses/500.yaml'

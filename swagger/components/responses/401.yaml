@@ -21,4 +21,4 @@ content:
           properties:
             message:
               type: string
-              example: 'Authorization information is missing or invalid.'
+              example: Authorization information is missing or invalid.

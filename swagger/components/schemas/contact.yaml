@@ -6,36 +6,36 @@ required:
   - userId
 properties:
   _id:
-    description: Contact's id
+    description: Contact's ID
     type: string
-    example: '65ca67e7ae7f10c88b598384'
+    example: 65ca67e7ae7f10c88b598384
   name:
     description: Contact's name
     type: string
     minLength: 3
     maxLength: 20
-    example: 'John Doe'
+    example: John Doe
   phoneNumber:
     description: Contact's phone number
     type: string
-    example: '+380630078888'
+    example: +380630078888
   email:
     description: Contact's email
     type: string
-    example: 'example@gmail.com'
+    example: example@gmail.com
   isFavourite:
     description: Whether the contact is a favorite
     type: boolean
-    default: false
+    example: false
   contactType:
     description: Type of contact
     type: string
-    enum: ['work', 'home', 'personal']
-    example: 'personal'
+    enum: [work, home, personal]
+    example: personal
   userId:
-    description: Contact's owner id
+    description: Contact's owner ID
     type: string
-    example: '65ca67e7ae7f10c88b598384'
+    example: 65ca67e7ae7f10c88b598384
   photo:
     description: Link to contact's photo
     type: string
