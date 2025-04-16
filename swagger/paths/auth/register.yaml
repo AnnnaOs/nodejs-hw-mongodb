@@ -1,8 +1,8 @@
 tags:
   - Auth
-summary: User registration
+summary: 'User registration'
 operationId: registerUser
-description: Register a new user
+description: 'Register a new user'
 security: []
 requestBody:
   required: true
@@ -17,16 +17,16 @@ requestBody:
         properties:
           name:
             type: string
-            example: John Doe
+            example: 'John Doe'
           email:
             type: string
-            example: example@example.com
+            example: 'example@example.com'
           password:
             type: string
-            example: password123
+            example: 'password123'
 responses:
   '201':
-    description: Successful operation. Create user
+    description: 'Successful operation. Create user'
     content:
       application/json:
         schema:
@@ -41,14 +41,14 @@ responses:
               example: 201
             message:
               type: string
-              example: Successfully registered a user!
+              example: 'Successfully registered a user!'
             data:
               type: object
               $ref: '../../components/schemas/user.yaml'
   '400':
     $ref: '../../components/responses/400.yaml'
   '409':
-    description: Conflict Error
+    description: 'Conflict Error'
     content:
       application\json:
         schema:
@@ -63,7 +63,7 @@ responses:
               example: 409
             message:
               type: string
-              example: ConflictError
+              example: 'ConflictError'
             data:
               type: object
               required:
@@ -71,6 +71,6 @@ responses:
               properties:
                 message:
                   type: string
-                  example: Email in use
+                  example: 'Email in use'
   '500':
     $ref: '../../components/responses/500.yaml'

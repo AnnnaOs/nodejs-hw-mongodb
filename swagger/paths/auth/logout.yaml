@@ -1,12 +1,12 @@
 tags:
   - Auth
-summary: User logout
+summary: 'User logout'
 operationId: logoutUser
-description: Logout from account
+description: 'Logout from account'
 security: []
 responses:
   '204':
-    description: Successful operation. No content
+    description: 'Successful operation. No content'
   '401':
     $ref: '../../components/responses/401.yaml'
   '500':

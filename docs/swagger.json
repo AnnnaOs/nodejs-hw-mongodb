@@ -171,9 +171,6 @@
               }
             }
           },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
           "401": {
             "$ref": "#/components/responses/401"
           },
@@ -975,6 +972,137 @@
           }
         }
       }
+    },
+    "/auth/get-oauth-url": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get Google OAuth url",
+        "operationId": "getGoogleOAuthUrl",
+        "description": "Get Google OAuth url for login or sign up",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "message",
+                    "data"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully get Google OAuth url!"
+                    },
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "url"
+                      ],
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&response_type=code&client_id=459893735637-gff83o7lb1vfb2ijqcj8clfn5ite3dqp.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fconfirm-google-auth"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404",
+            "description": "Route not found"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/auth/confirm-oauth": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Confirm Google OAuth",
+        "operationId": "loginOrSignUpWithGoogle",
+        "description": "Sign up or login with Google OAuth code",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "code"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "example": "4/0Ab_5qllMJBeHEyWr18_WKhSw4RWw_zky5H6dr6sfVvXpbmkERV23XdWnFreKx7Cd4-j79A"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "status",
+                    "message",
+                    "data"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully logged in via Google OAuth!"
+                    },
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "accessToken"
+                      ],
+                      "properties": {
+                        "accessToken": {
+                          "type": "string",
+                          "example": "URa+Si9YcG3JTyl6uQ77/a6cAtTUVIHcp80gMc+Y"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "500": {
+            "$ref": "#/components/responses/500",
+            "description": "invalid_grant"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -988,6 +1116,7 @@
       "contact": {
         "type": "object",
         "required": [
+          "_id",
           "name",
           "phoneNumber",
           "contactType",
@@ -995,7 +1124,7 @@
         ],
         "properties": {
           "_id": {
-            "description": "Contact's id",
+            "description": "Contact's ID",
             "type": "string",
             "example": "65ca67e7ae7f10c88b598384"
           },
@@ -1019,7 +1148,7 @@
           "isFavourite": {
             "description": "Whether the contact is a favorite",
             "type": "boolean",
-            "default": false
+            "example": false
           },
           "contactType": {
             "description": "Type of contact",
@@ -1032,7 +1161,7 @@
             "example": "personal"
           },
           "userId": {
-            "description": "Contact's owner id",
+            "description": "Contact's owner ID",
             "type": "string",
             "example": "65ca67e7ae7f10c88b598384"
           },

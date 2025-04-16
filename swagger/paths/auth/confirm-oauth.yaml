@@ -1,8 +1,8 @@
 tags:
   - Auth
-summary: 'Reset user password'
-operationId: resetPassword
-description: "Reset user's password using jwt token"
+summary: 'Confirm Google OAuth'
+operationId: loginOrSignUpWithGoogle
+description: 'Sign up or login with Google OAuth code'
 security: []
 requestBody:
   required: true
@@ -11,22 +11,17 @@ requestBody:
       schema:
         type: object
         required:
-          - token
-          - password
+          - code
         properties:
-          token:
+          code:
             type: string
-            example: 'ksIErcdA0oBwLX79f4bPcYXWKyEX/hcN6OcDU1Ll'
-          password:
-            type: string
-            example: 'newSecurePassword123'
+            example: '4/0Ab_5qllMJBeHEyWr18_WKhSw4RWw_zky5H6dr6sfVvXpbmkERV23XdWnFreKx7Cd4-j79A'
 responses:
   '200':
     description: 'Successful operation'
     content:
       application/json:
         schema:
-          type: object
           required:
             - status
             - message
@@ -37,17 +32,17 @@ responses:
               example: 200
             message:
               type: string
-              example: 'Password has been successfully reset!'
+              example: 'Successfully logged in via Google OAuth!'
             data:
               type: object
-              properties: {}
-  '400':
-    $ref: '../../components/responses/400.yaml'
+              required:
+                - accessToken
+              properties:
+                accessToken:
+                  type: string
+                  example: 'URa+Si9YcG3JTyl6uQ77/a6cAtTUVIHcp80gMc+Y'
   '401':
     $ref: '../../components/responses/401.yaml'
-    description: 'Token is expired or invalid'
-  '404':
-    $ref: '../../components/responses/404.yaml'
-    description: 'User not found'
   '500':
     $ref: '../../components/responses/500.yaml'
+    description: 'invalid_grant'

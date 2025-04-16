@@ -1,14 +1,15 @@
 type: object
 required:
+  - _id
   - name
   - phoneNumber
   - contactType
   - userId
 properties:
   _id:
-    description: Contact's ID
+    description: "Contact's ID"
     type: string
-    example: 65ca67e7ae7f10c88b598384
+    example: '65ca67e7ae7f10c88b598384'
   name:
     description: Contact's name
     type: string
@@ -30,7 +31,10 @@ properties:
   contactType:
     description: Type of contact
     type: string
-    enum: [work, home, personal]
+    enum:
+      - work
+      - home
+      - personal
     example: personal
   userId:
     description: Contact's owner ID
