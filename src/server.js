@@ -10,7 +10,7 @@ import { swaggerDocs } from './middlewares/swaggerDocs.js';
 import { UPLOAD_DIR } from './constants/index.js';
 import router from './routers/index.js';
 
-const PORT = Number(getEnvVar('PORT', '3000'));
+const PORT = Number(getEnvVar('PORT', '4000'));
 
 export const setupServer = () => {
   const app = express();
